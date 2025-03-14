@@ -1,7 +1,7 @@
 # Script Name: prompts.ps1
 # Author: m-kiser
 
-# Ensure the script runs in the "Requirements1" folder
+# Ensure the script runs in the current folder
 $folderPath = Get-Location  
 Set-Location -Path $folderPath
 
@@ -12,7 +12,7 @@ function List-LogFiles {
     $logFiles | ForEach-Object { "$date - $_.Name" } | Out-File -FilePath "DailyLog.txt" -Append
 }
 
-# Function to list files in Requirements1 sorted in alphabetical order
+# Function to list files in current folder sorted in alphabetical order
 function List-Contents {
     $contents = Get-ChildItem -Path $folderPath | Sort-Object Name
     $contents | Format-Table Name | Out-File -FilePath "contents.txt"
@@ -50,7 +50,7 @@ function List-Processes {
 do {
     Write-Host "Choose an option:"
     Write-Host "1. List .log files and save to DailyLog.txt"
-    Write-Host "2. List contents of Requirements1 folder sorted"
+    Write-Host "2. List contents of current folder sorted"
     Write-Host "3. List current CPU and memory usage"
     Write-Host "4. List running processes sorted by virtual size (least to greatest)"
     Write-Host "5. Exit"
@@ -66,9 +66,9 @@ do {
                 break
             }
             2 {
-                # List the files inside Requirements1 in alphabetical order and output to contents.txt
+                # List the files inside current folder in alphabetical order and output to contents.txt
                 List-Contents
-                Write-Host "Listed contents of Requirements1 folder to contents.txt" -ForegroundColor Green
+                Write-Host "Listed contents of current folder to contents.txt" -ForegroundColor Green
                 break
             }
             3 {
