@@ -1,4 +1,4 @@
-# Administrative-Tasks1
+# AdminTasks-Powershell
 
 1.  Using REGEX, lists files within the Requirements1 folder, with the .log file extension and redirect the results to a new file called “DailyLog.txt” within the same directory without overwriting existing data. Each time the user selects this prompt, the current date precedes the listing. (User presses key 1.)
 
